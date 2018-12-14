@@ -64,7 +64,7 @@ function newNote(){
 	num++;
 	}	
 
-//deletes note
+//deletes note 
 function remover(x){
 	var target = document.getElementById(x);
 	document.body.removeChild(target);
@@ -75,16 +75,18 @@ function remover(x){
 //when the page is opened this loads all saved notes
 function loader(){
     window.alert("loaded");
-     noteArray = JSON.parse(localStorage.getItem("noteArray") || "[]");
+     //noteArray = JSON.parse(localStorage.getItem("noteArray") || "[]");
+	var allCookies = document.cookie;
+	noteArray = allCookies.split(";");
     num = noteArray.length;
     window.alert(noteArray);
     for(num = 0; num < noteArray.length; num){
         newNote();
     }
-
 }
 
 //this saves notes when they are made
 function saver(){
-    localStorage.setItem("noteArray" , JSON.stringify(noteArray));
+	document.cookie="CookieArray=" + noteArray;
+    //localStorage.setItem("noteArray" , JSON.stringify(noteArray));
 }
