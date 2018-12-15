@@ -77,7 +77,7 @@ function loader(){
     window.alert("loaded");
      //noteArray = JSON.parse(localStorage.getItem("noteArray") || "[]");
 	var allCookies = document.cookie;
-	noteArray = allCookies.split(",");
+	noteArray = JSON.parse(allCookies.split(","));
     num = noteArray.length;
     window.alert(noteArray);
     for(num = 0; num < noteArray.length; num){
