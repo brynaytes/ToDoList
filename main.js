@@ -75,18 +75,19 @@ function remover(x){
 //when the page is opened this loads all saved notes
 function loader(){
     window.alert("loaded");
-     //noteArray = JSON.parse(localStorage.getItem("noteArray") || "[]");
 	var par = document.cookie;
-	noteArray = par.split(",");
-    window.alert(noteArray);
+	//noteArray = par.split(",");
+	noteArray = JSON.parse(par);
     for(num = 0; num < noteArray.length; num){
+		//noteArray[num] = JSON.parse(noteArray[num]);
         newNote();
     }
 }
 
 //this saves notes when they are made
 function saver(){
-	document.cookie= noteArray ;
+	var str = JSON.stringify(noteArray);
+	document.cookie= str ;
     //localStorage.setItem("noteArray" , JSON.stringify(noteArray));
 }
 function check(){
