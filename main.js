@@ -77,7 +77,6 @@ function loader(){
     window.alert("loaded");
      //noteArray = JSON.parse(localStorage.getItem("noteArray") || "[]");
 	var allCookies = document.cookie;
-	var par = JSON.parse(allCookies);
 	noteArray = par.split(";");
     window.alert(noteArray);
     for(num = 0; num < noteArray.length; num){
@@ -87,7 +86,7 @@ function loader(){
 
 //this saves notes when they are made
 function saver(){
-	document.cookie="CookieArray=" + noteArray +"; path=/";
+	document.cookie= noteArray ;
     //localStorage.setItem("noteArray" , JSON.stringify(noteArray));
 }
 function check(){
