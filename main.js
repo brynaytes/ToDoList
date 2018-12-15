@@ -90,3 +90,7 @@ function saver(){
 	document.cookie="CookieArray=" + noteArray;
     //localStorage.setItem("noteArray" , JSON.stringify(noteArray));
 }
+function check(){
+	window.alert(noteArray);
+}
+
