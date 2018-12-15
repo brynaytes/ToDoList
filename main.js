@@ -76,8 +76,8 @@ function remover(x){
 function loader(){
     window.alert("loaded");
      //noteArray = JSON.parse(localStorage.getItem("noteArray") || "[]");
-	var allCookies = document.cookie;
-	noteArray = par.split(";");
+	var par = document.cookie;
+	noteArray = par.split(",");
     window.alert(noteArray);
     for(num = 0; num < noteArray.length; num){
         newNote();
