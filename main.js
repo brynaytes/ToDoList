@@ -87,7 +87,7 @@ function loader(){
 
 //this saves notes when they are made
 function saver(){
-	document.cookie="CookieArray=" + noteArray;
+	document.cookie="CookieArray=" + noteArray + "; path=/";
     //localStorage.setItem("noteArray" , JSON.stringify(noteArray));
 }
 function check(){
