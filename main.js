@@ -81,7 +81,6 @@ function loader(){
 	noteArray = par.split(";");
     window.alert(noteArray);
     for(num = 0; num < noteArray.length; num){
-	noteArray[num] = JSON.parse(noteArray[num]);
         newNote();
     }
 }
