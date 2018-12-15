@@ -68,7 +68,7 @@ function newNote(){
 function remover(x){
 	var target = document.getElementById(x);
 	document.body.removeChild(target);
-   noteArray.splice(x,1);
+	noteArray[x] = 0;
     window.alert(noteArray[1].title);
 }
 
@@ -77,7 +77,7 @@ function loader(){
     window.alert("loaded");
      //noteArray = JSON.parse(localStorage.getItem("noteArray") || "[]");
 	var allCookies = document.cookie;
-	noteArray = allCookies.split(";");
+	noteArray = allCookies.split(",");
     num = noteArray.length;
     window.alert(noteArray);
     for(num = 0; num < noteArray.length; num){
