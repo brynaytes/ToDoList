@@ -1,22 +1,20 @@
 var num = 0;
+var d= new Date();
 //holds note information
 var noteArray = [];
-
 //Object for notes
 function Note(title, date, note){
 	this.title = title;
 	this.date = date;
 	this.note = note;
 }
-
 //empty
 function main(){
+	
 }
-
 //When the new note button is pressed
 function setter(x){
-	if(x){
-	document.getElementById('noteMaker').style.display="block";
+	if(x){	document.getElementById('noteMaker').style.display="block";
 	}else{
 	document.getElementById('noteMaker').style.display="none";	
 
@@ -29,7 +27,6 @@ function setter(x){
 	}
     saver();
 }
-
 //gets information form setter function to make note on screen
 function newNote(){
  	var note1 = noteArray[num];
@@ -37,7 +34,7 @@ function newNote(){
 	var div = document.createElement("div");
 	div.id= num;
 	div.classList.add("note");
-	document.body.appendChild(div);
+	document.getElementById("holder").appendChild(div);
 	
 	var title = document.createElement("h1");
 	title.innerHTML=note1.title;
@@ -60,16 +57,12 @@ function newNote(){
 	document.getElementById(num).appendChild(delButton);
 	num++;
 	}	
-
 //deletes note 
 function remover(x){
-	//var target = document.getElementById(x);
-	//document.body.removeChild(target);
 	noteArray.splice(x,1);
 	location.reload();
 	saver();
 }
-
 //when the page is opened this loads all saved notes
 function loader(){
 	var par = document.cookie;
@@ -77,8 +70,9 @@ function loader(){
     for(num = 0; num < noteArray.length; num){
         newNote();
     }
-}
 
+	document.getElementById("date").innerHTML = "Date: " + (d.getMonth()+1 ) + "-" +d.getDate();
+}
 //this saves notes when they are made
 function saver(){
 	var str = JSON.stringify(noteArray);
@@ -87,4 +81,3 @@ function saver(){
 function check(){
 	window.alert("cookies: " + document.cookie);
 }
-
