@@ -11,9 +11,6 @@ function Note(title, date, note){
 
 //empty
 function main(){
-	
-    
-    
 }
 
 //When the new note button is pressed
@@ -68,8 +65,7 @@ function newNote(){
 function remover(x){
 	var target = document.getElementById(x);
 	document.body.removeChild(target);
-	noteArray[x] = 0;
-    window.alert(noteArray[1].title);
+	noteArray[x] = "0";
 }
 
 //when the page is opened this loads all saved notes
@@ -85,10 +81,8 @@ function loader(){
 function saver(){
 	var str = JSON.stringify(noteArray);
 	document.cookie= str+ ";expires=Fri, 31 Dec 9999 23:59:59 GMT;";
-    //localStorage.setItem("noteArray" , JSON.stringify(noteArray));
 }
 function check(){
-	//window.alert(noteArray);
 	window.alert("cookies: " + document.cookie);
 }
 
