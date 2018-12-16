@@ -92,5 +92,6 @@ function saver(){
 }
 function check(){
 	window.alert(noteArray);
+	window.alert("cookies: " + document.cookie);
 }
 
