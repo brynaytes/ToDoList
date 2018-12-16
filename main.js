@@ -63,9 +63,10 @@ function newNote(){
 
 //deletes note 
 function remover(x){
-	var target = document.getElementById(x);
-	document.body.removeChild(target);
+	//var target = document.getElementById(x);
+	//document.body.removeChild(target);
 	noteArray.splice(x,1);
+	location.reload();
 	saver();
 }
 
