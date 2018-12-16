@@ -65,7 +65,7 @@ function newNote(){
 function remover(x){
 	var target = document.getElementById(x);
 	document.body.removeChild(target);
-	noteArray[x] = "0";
+	noteArray.splice(x,1);
 	window.alert(x);
 }
 
