@@ -66,7 +66,7 @@ function remover(x){
 	var target = document.getElementById(x);
 	document.body.removeChild(target);
 	noteArray.splice(x,1);
-	window.alert(x);
+	saver();
 }
 
 //when the page is opened this loads all saved notes
