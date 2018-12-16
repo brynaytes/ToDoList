@@ -74,12 +74,9 @@ function remover(x){
 
 //when the page is opened this loads all saved notes
 function loader(){
-    //window.alert("loaded");
 	var par = document.cookie;
-	//noteArray = par.split(",");
 	noteArray = JSON.parse(par);
     for(num = 0; num < noteArray.length; num){
-		//noteArray[num] = JSON.parse(noteArray[num]);
         newNote();
     }
 }
