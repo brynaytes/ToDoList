@@ -91,7 +91,7 @@ function saver(){
     //localStorage.setItem("noteArray" , JSON.stringify(noteArray));
 }
 function check(){
-	window.alert(noteArray);
+	//window.alert(noteArray);
 	window.alert("cookies: " + document.cookie);
 }
 
