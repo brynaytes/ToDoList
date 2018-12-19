@@ -1,4 +1,5 @@
 var num = 0;
+var late = null;
 var d= new Date();
 //holds note information
 var noteArray = [];
@@ -20,7 +21,14 @@ function setter(x){
 
 	var note2 = new Note();
 	note2.title = document.getElementById("Title").value;
-	note2.date = document.getElementById("Date").value;
+	var str = document.getElementById("Date").value;
+	str = str.split("-");
+	str.splice(0,1);
+	var str1  = str.join(",");
+	var str2 = str1.replace(",","-");
+	note2.date= str2;	
+	//note2.date = getDate(str);
+		
 	note2.note = document.getElementById("Note").value;
 	noteArray.push(note2);
 	newNote();
@@ -41,11 +49,16 @@ function newNote(){
 	document.getElementById(num).appendChild(title);
 	
 	var date = document.createElement("h2");
-	date.innerHTML=note1.date;
+	date.innerHTML= DateTest(note1.date);
+	if(late == true){
+		date.style.color="red";
+	}
 	document.getElementById( num).appendChild(date);
 	
 	var date = document.createElement("p");
 	date.innerHTML=note1.note;
+	
+	
 	date.id="text";
 	document.getElementById( num).appendChild(date);
 	
@@ -67,11 +80,13 @@ function remover(x){
 function loader(){
 	var par = document.cookie;
 	noteArray = JSON.parse(par);
+	document.getElementById("date").innerHTML="Date: "+ (d.getMonth()+1) + "-" + d.getDate();
+	
     for(num = 0; num < noteArray.length; num){
         newNote();
     }
 
-	document.getElementById("date").innerHTML = "Date: " + (d.getMonth()+1 ) + "-" +d.getDate();
+	//document.getElementById("date").innerHTML = "Date: " + (d.getMonth()+1 ) + "-" +d.getDate();
 }
 //this saves notes when they are made
 function saver(){
@@ -80,4 +95,23 @@ function saver(){
 }
 function check(){
 	window.alert("cookies: " + document.cookie);
+}
+function DateTest(str){
+	late = null;
+	var str1 = str.split("-");
+	if(str1[0] == d.getMonth()+1){
+	if(str1[1] == d.getDate()){
+	return("Today");
+	}else if(str1[1] == d.getDate() + 1){
+		return("Tomorrow");
+	}else if(str1[1] == d.getDate() -1){
+		late = true;
+		return("Yesterday");
+	}}
+	if(d.getDate() > str1[1] || (d.getMonth() >= str1[0])){
+		late = true;
+	}
+	str1  = str1.join(",");
+	var str2 = str1.replace(",","-");
+	return(str2);
 }
