@@ -22,11 +22,7 @@ function setter(x){
 	var note2 = new Note();
 	note2.title = document.getElementById("Title").value;
 	var str = document.getElementById("Date").value;
-	str = str.split("-");
-	str.splice(0,1);
-	var str1  = str.join(",");
-	var str2 = str1.replace(",","-");
-	note2.date= str2;	
+	note2.date= str;	
 	//note2.date = getDate(str);
 		
 	note2.note = document.getElementById("Note").value;
@@ -93,25 +89,39 @@ function saver(){
 	var str = JSON.stringify(noteArray);
 	document.cookie= str+ ";expires=Fri, 31 Dec 9999 23:59:59 GMT;";
 }
+//checks what information is in the cookies
 function check(){
 	window.alert("cookies: " + document.cookie);
 }
+//returns appropriate date
 function DateTest(str){
-	late = null;
-	var str1 = str.split("-");
-	if(str1[0] == d.getMonth()+1){
-	if(str1[1] == d.getDate()){
-	return("Today");
-	}else if(str1[1] == d.getDate() + 1){
+		late = null;
+	str = str.split("-");
+	if((str[0] < d.getFullYear())){
+		late = true;
+		var str1  = str.join("-");
+		var str2 = str1.replace(",","-");
+		return(str2);
+	}else if(str[0] == d.getFullYear()){
+		var str1 = str.slice(1);
+		if(str1[0] == d.getMonth()+1){
+		if(str1[1] == d.getDate()){
+		return("Today");
+		}else if(str1[1] == d.getDate() + 1){
 		return("Tomorrow");
-	}else if(str1[1] == d.getDate() -1){
+		}else if(str1[1] == d.getDate() -1){
 		late = true;
-		return("Yesterday");
-	}}
-	if(d.getDate() > str1[1] || (d.getMonth() >= str1[0])){
+			return("Yesterday");
+		}}
+		if(d.getDate() > str1[1] || (d.getMonth() >= str1[0])){
 		late = true;
+		}
+		str1  = str1.join(",");
+		var str2 = str1.replace(",","-");
+		return(str2);
+	}else{
+		var str1  = str.join("-");
+		var str2 = str1.replace(",","-");
+		return(str2);
 	}
-	str1  = str1.join(",");
-	var str2 = str1.replace(",","-");
-	return(str2);
 }
