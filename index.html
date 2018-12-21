@@ -6,19 +6,26 @@
 </head>
 <body onload="loader()">
     <div class="toper">
-        <button onclick="setter(true)" title="Make a new note">new</button>
-        <button title="About" onclick="check()">i</button>
+        <button onclick="setter(true)" title="Make a new note">+</button>
+        <button title="About" onclick="hideInfo(false)">?</button>
 		<a id="date">date</a>
-    </div>
+
     <br>
     <br>
 	<div id="noteMaker">
 		Title:<input type="text" id="Title"></input><br>
 		Date:<input type="date" id="Date"></input><br>
 		Note:<textarea type="text" id="Note"></textarea><br>
-		<button onclick="setter(false)">done</button>
+		<button onclick="setter(false)">Done</button>
+		<button onclick="hider()">Cancel</button>
 	</div>
+	    </div>
 	<br>
 	<div id="holder"></div>
+	<div id="info">
+		<p>To create a new tast click the plus icon in the left hand corner. Fill out a title, due date, and some information about what you want to accomplish. Click next and it will appear on your To-Do List. </p>
+		<p>All tasks are saved to your computer. This is the only device that can access them.</p>
+		<button onclick="hideInfo(true)">Close</button>
+	</div>
 </body>
 </html>
