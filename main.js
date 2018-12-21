@@ -125,3 +125,17 @@ function DateTest(str){
 		return(str2);
 	}
 }
+
+function hideInfo(x){
+	var status;
+	if(x){
+		status = "none";
+	}else{
+		status = "block";
+	}
+	document.getElementById("info").style.display=status;
+}
+
+function hider(){
+	document.getElementById('noteMaker').style.display="none";	
+}
