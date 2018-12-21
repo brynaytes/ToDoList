@@ -1,8 +1,8 @@
 .note{
 	border: 2px solid white;
-	width:400px;
+	width:375px;
 	display: grid;
-	grid-template-columns:200px 200px;
+	grid-template-columns:195px 195px;
 	grid-template-rows:auto auto;
 }
 #text{
@@ -13,7 +13,7 @@
 	display:none;
 }
 body {
-	background-image:linear-gradient(#000000,gray);
+	background-image:linear-gradient(#000000,darkslategray);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
@@ -35,9 +35,30 @@ html {
 }
 .toper{
     width:100%;
+	background-color:#111c1c;
     position: fixed;
 }
 #holder{
 	display:grid;
-	grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+	/*grid-template-columns:repeat(auto-fit,minmax(400px,1fr));*/
+	width:700px;
+	grid-template-columns: 1fr 1fr;
+	margin-top:40px;
+
+}
+#info{
+	width:250px;
+	border:3px solid gray;
+	border-radius:10px;
+	background-color:white;
+	color:black;
+	font-family:helvetica;
+	display:none;
+	position:absolute;
+	left:100px;
+	top:100px;
+}
+button{
+	border-radius:20px;
+	font-size:20px;
 }
